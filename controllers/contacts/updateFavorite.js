@@ -13,7 +13,7 @@ const updateFavorite = async (req, res) => {
   if (!result) {
     throw new NotFound(`missing field favorite`);
   }
-  res.json({
+  res.status(200).json({
     status: "success",
     code: 200,
     data: {
