@@ -15,6 +15,11 @@ const contatSchema = Schema(
       type: String,
       required: true,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
     favorite: {
       type: Boolean,
       default: false,
