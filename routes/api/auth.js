@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { auth, validation, ctrlWrapper } = require("../../middlewares");
+const { auth, upload, validation, ctrlWrapper } = require("../../middlewares");
 
 const { auth: ctrl } = require("../../controllers");
 
@@ -29,6 +29,13 @@ router.patch(
   auth,
   validation(updateSubscriptionSchema),
   ctrlWrapper(ctrl.updateSubscription)
+);
+
+router.patch(
+  "/avatars",
+  auth,
+  upload.single("avatar"),
+  ctrlWrapper(ctrl.updateAvatar)
 );
 
 module.exports = router;
